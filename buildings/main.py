@@ -3,9 +3,9 @@ from buildings import *
 from components import material_basic_ground
 
 win = bk.Window()
-win.set_title("BK7084 - Lab 4 - Building Generation [ex03]")
+win.set_title("kantoorgebouw")
 win.set_size(800, 800)
-win.set_resizable(True)
+win.set_resizable(False)
 
 app = bk.App()
 camera = app.create_camera(
@@ -67,6 +67,5 @@ def on_update(input, dt, t):
             app.enable_wireframe(enable_wireframe)
     if input.is_key_released(bk.KeyCode.Key2):
         is_key_2_pressed = False
-
 
 app.run(win)
