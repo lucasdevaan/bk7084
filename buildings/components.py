@@ -31,6 +31,7 @@ material_glass_wall = bk.Material()
 material_glass_wall.textures = {
     "diffuse_texture": bk.res_path("../assets/glass_wall_diffuse.jpg"),
     "normal_texture": bk.res_path("../assets/glass_wall_normal.jpg"),
+#    "specular_texture": bk.res_path("../assets/glass_wall_gloss.jpg"),
 }
 
 material_round_window = bk.Material()
