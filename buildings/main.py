@@ -15,6 +15,7 @@ camera.set_as_main_camera()
 
 app.add_directional_light(Vec3(-1, -1, -1), bk.Color(0.8, 0.8, 0.8))
 
+"""
 grid_config = [
     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
     ['0', '0', '1', '2', '2', '0', '2', '2', '1', '0', '0'],
@@ -28,8 +29,13 @@ grid_config = [
     ['0', '0', '1', '2', '2', '0', '2', '2', '1', '0', '0'],
     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
 ]
-building = Building(app, 3, grid_config=grid_config)
-building.building.set_transform(Mat4.from_translation(Vec3(0, 0, 0)))
+office = Office(app, 3, grid_config=grid_config)
+office.building.set_transform(Mat4.from_translation(Vec3(0, 0, 0)))
+"""
+
+skyscraper = Skyscraper(app, 5, 3)
+skyscraper.building.set_transform(Mat4.identity())
+
 
 ground_mesh = bk.Mesh.create_quad(33, bk.Alignment.XY)
 ground_mesh.set_material(material_basic_ground)

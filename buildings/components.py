@@ -52,25 +52,30 @@ material_basic_ground.textures = {
 from bk7084 import Mesh as bkMesh
 import numpy as np
 
+class Circle(bk.Mesh)
+
 class ConcreteWall(bk.Mesh):
 
     def __new__(cls, *args, **kwargs):
         return super().__new__(cls)
 
-    def __init__(self, w=1, h=1, m=material_concrete_wall):
+    def __init__(self, width=1, height=1, m=material_concrete_wall):
         super().__init__()
-        self.w = w
-        self.h = h
-        self.name = "BasicWallMesh"
+
+        self.w = width
+        self.h = height
+        self.name = "BasicFloorMesh"
+        self.materials = [m]
+
+        scale_matrix = np.diag([self.w, 1, self.h, 1])
         self.positions = [
-            [-w / 2, -h / 2, 0],
-            [w / 2, -h / 2, 0],
-            [w / 2, h / 2, 0],
-            [-w / 2, h / 2, 0],
+            np.dot(scale_matrix, [-0.5, 0, -0.5, 1])[:-1],
+            np.dot(scale_matrix, [0.5, 0, -0.5, 1])[:-1],
+            np.dot(scale_matrix, [0.5, 0, 0.5, 1])[:-1],
+            np.dot(scale_matrix, [-0.5, 0, 0.5, 1])[:-1],
         ]
         self.texcoords = [[0, 0], [1, 0], [1, 1], [0, 1]]
-        self.triangles = [[0, 1, 2], [0, 2, 3]]
-        self.materials = [m]
+        self.triangles = [[0, 2, 1], [0, 3, 2]]
 
 class ConcreteFloor(bkMesh):
     def __new__(cls, *args, **kwargs):
