@@ -87,17 +87,6 @@ class City:
     the type of the building at a specific row and column, respectively.
     """
     def __init__(self, app, plots_per_col=8, plots_per_row=8, plot_width=3):
-        """Initializes the city grid.
-        Args:
-            app (bk.App):
-                The app instance.
-            plots_per_col (int):
-                The number of plots per column.
-            plots_per_row (int):
-                The number of plots per row.
-            plot_width (float):
-                The width of each plot.
-        """
         self._app = app
         self._plots_per_col = plots_per_col
         self._plots_per_row = plots_per_row
@@ -177,12 +166,33 @@ class City:
         - 15% of the plots should be parks
         - the remaining plots can be whatever you want
         """
-        # TODO: Randomize the city grid in a smart way.
+        total_plots = self._plots_per_row * self._plots_per_col
+        skyscraper_percentage = 5
+        highrise_percentage = 8
+        office_percentage = 25
+        house_percentage = 37
+        park_percentage = 15
+
+        skyscraper_count = int(total_plots * skyscraper_percentage / 100)
+        highrise_count = int(total_plots * highrise_percentage / 100)
+        office_count = int(total_plots * office_percentage / 100)
+        house_count = int(total_plots * house_percentage / 100)
+        park_count = int(total_plots * park_percentage / 100)
+
+        building_types = (
+            [BuildingType.SKYSCRAPER] * skyscraper_count +
+            [BuildingType.HIGHRISE] * highrise_count +
+            [BuildingType.OFFICE] * office_count +
+            [BuildingType.HOUSE] * house_count +
+            [BuildingType.PARK] * park_count +
+            [BuildingType.EMPTY] * (total_plots - skyscraper_count - highrise_count - office_count - house_count - park_count)
+        )
+
+        np.random.shuffle(building_types)
+
         for row in range(self._plots_per_row):
             for col in range(self._plots_per_col):
-                # Generate a random number between 0 and 5 (inclusive)
-                # and set the plot type accordingly
-                building_type = BuildingType(randint(0, 5))
+                building_type = building_types.pop()
                 self.construct_building(row, col, building_type)
 
     def clear_grid(self):
@@ -203,15 +213,6 @@ class City:
         return self._plots_per_col
 
     def construct_building(self, row: int, col: int, building_type: BuildingType):
-        """Constructs a building at the given row and column.
-        Args:
-            row (int):
-                The row of the plot.
-            col (int):
-                The column of the plot.
-            building_type (BuildingType):
-                The type of building to construct.
-        """
         building = None
 
         if building_type is BuildingType.HOUSE:
