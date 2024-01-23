@@ -99,7 +99,7 @@ light = app.add_directional_light(Vec3(0.0) - starting_pos, bk.Color(0.8, 0.8, 0
 
 city = City(app, 32, 32, 22)
 optimizer = Optimizer(city)
-run_optimizer = False
+run_optimizer = True
 
 # Variables to avoid key spamming
 is_key_1_pressed = False
