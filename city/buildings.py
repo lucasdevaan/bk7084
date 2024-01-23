@@ -1,3 +1,4 @@
+import math
 import random
 
 from bk7084.math import *
@@ -42,8 +43,8 @@ self.building component. This is how we can translate the whole building.
 
 
 class Skyscraper:
-    """A basic skyscraper class that procedurally generates
-    a skyscraper given a number of floors and width.
+    """A highrise class that procedurally generates
+    a highrise building given a number of floors and width.
 
     Args:
         app (bk.App):
@@ -53,45 +54,76 @@ class Skyscraper:
         max_width (float):
             The maximum width for each component.
     """
-
     def __init__(self, app, num_floors, max_width):
         self.num_floors = num_floors
         # Spawn the building and save the reference to the building
         self.building = app.spawn_building()
         self.building.set_visible(True)
         for i in range(self.num_floors):
-            floor1 = app.add_mesh(
-                BasicFloor(max_width, max_width), parent=self.building
-            )
-            floor1.set_transform(Mat4.from_translation(Vec3(0, max_width * i, 0)))
+            angle = i + 2 * math.pi / 4
+            height = max_width * i  # Adjust the height to control the vertical spacing between floors
+
+            # To place each floor higher than the previous one, we parent all
+            # components to one 'base' component (floor1, see below). Then we
+            # only have to move the base component up higher and the framework
+            # takes care of the rest.
+            floor1 = app.add_mesh(GreenRoof(max_width, max_width), parent=self.building)
+            # Place the base component higher each time (i)
+            floor1.set_transform(Mat4.from_translation(Vec3(max_width * math.cos(angle), height, max_width * math.sin(angle))) * Mat4.from_rotation_y(angle, True))
             floor1.set_visible(True)
-            floor2 = app.add_mesh(BasicFloor(max_width, max_width), parent=floor1)
+          
+            floor2 = app.add_mesh(GreenRoof(max_width, max_width), parent=floor1)
             floor2.set_transform(Mat4.from_translation(Vec3(0, max_width, 0)))
             floor2.set_visible(True)
-            wall1 = app.add_mesh(TileWindowWall(max_width, max_width), parent=floor1)
-            wall1.set_transform(
-                Mat4.from_translation(Vec3(0, max_width / 2, max_width / 2))
-            )
-            wall1.set_visible(True)
-            wall2 = app.add_mesh(TileWall(max_width, max_width), parent=floor1)
-            wall2.set_transform(
-                Mat4.from_translation(Vec3(max_width / 2, max_width / 2, 0))
-                * Mat4.from_rotation_y(90, True)
-            )
-            wall2.set_visible(True)
-            wall3 = app.add_mesh(TileWall(max_width, max_width), parent=floor1)
-            wall3.set_transform(
-                Mat4.from_translation(Vec3(0, max_width / 2, -max_width / 2))
-                * Mat4.from_rotation_y(180, True)
-            )
-            wall3.set_visible(True)
-            wall4 = app.add_mesh(TileWall(max_width, max_width), parent=floor1)
-            wall4.set_transform(
-                Mat4.from_translation(Vec3(-max_width / 2, max_width / 2, 0))
-                * Mat4.from_rotation_y(-90, True)
-            )
-            wall4.set_visible(True)
 
+            floor3 = app.add_mesh(GreenRoof(max_width, max_width), parent=self.building)
+            # Place the base component higher each time (i)
+            floor3.set_transform(Mat4.from_translation(Vec3(0, max_width * i, 0)))
+            floor3.set_visible(True)
+
+            floor4 = app.add_mesh(GreenRoof(max_width, max_width), parent=floor3)
+            floor4.set_transform(Mat4.from_translation(Vec3(0, max_width, 0)))
+            floor4.set_visible(True)
+           
+           
+            
+            def add_walls_to_floor(floor):
+                wall1 = app.add_mesh(YellowWindowWall(max_width, max_width), parent=floor)
+                wall1.set_transform(Mat4.from_translation(Vec3(0, max_width / 2, max_width / 2)))
+                wall1.set_visible(True)
+            
+                wall2 = app.add_mesh(YellowWall(max_width, max_width), parent=floor)
+                wall2.set_transform(Mat4.from_translation(Vec3(max_width / 2, max_width / 2, 0)) * Mat4.from_rotation_y(90, True))
+                wall2.set_visible(True)
+            
+                wall3 = app.add_mesh(YellowWindowWall(max_width, max_width), parent=floor)
+                wall3.set_transform(Mat4.from_translation(Vec3(0, max_width / 2, -max_width / 2)) * Mat4.from_rotation_y(180, True))
+                wall3.set_visible(True)
+            
+                wall4 = app.add_mesh(YellowWall(max_width, max_width), parent=floor)
+                wall4.set_transform(Mat4.from_translation(Vec3(-max_width / 2, max_width / 2, 0)) * Mat4.from_rotation_y(-90, True))
+                wall4.set_visible(True)
+
+            floors = [floor3]
+            
+            for floor in floors:
+                add_walls_to_floor(floor)
+
+            wall1 = app.add_mesh(BlueWindowWall(max_width, max_width), parent=floor1)
+            wall1.set_transform(Mat4.from_translation(Vec3(0, max_width / 2, max_width / 2)))
+            wall1.set_visible(True)
+           
+            wall2 = app.add_mesh(BlueWall(max_width, max_width), parent=floor1)
+            wall2.set_transform(Mat4.from_translation(Vec3(max_width / 2, max_width / 2, 0)) * Mat4.from_rotation_y(90, True))
+            wall2.set_visible(True)
+            
+            wall3 = app.add_mesh(BlueWindowWall(max_width, max_width), parent=floor1)
+            wall3.set_transform(Mat4.from_translation(Vec3(0, max_width / 2, -max_width / 2)) * Mat4.from_rotation_y(180, True))
+            wall3.set_visible(True)
+            
+            wall4 = app.add_mesh(BlueWall(max_width, max_width), parent=floor1)
+            wall4.set_transform(Mat4.from_translation(Vec3(-max_width / 2, max_width / 2, 0)) * Mat4.from_rotation_y(-90, True))
+            wall4.set_visible(True)
 
 class Highrise:
 
@@ -101,10 +133,6 @@ class Highrise:
         self.building = app.spawn_building()
         self.building.set_visible(True)
         for i in range(self.num_floors):
-            # To place each floor higher than the previous one, we parent all
-            # components to one 'base' component (floor1, see below). Then we
-            # only have to move the base component up higher and the framework
-            # takes care of the rest.
             floor1 = app.add_mesh(BasicFloor(max_width, max_width), parent=self.building)
             # Place the base component higher each time (i)
             floor1.set_transform(Mat4.from_translation(Vec3(0, max_width * i, 0)))

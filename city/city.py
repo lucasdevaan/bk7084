@@ -233,13 +233,11 @@ class City:
             building = Office(self._app, 3, grid_config=grid_config)
             building.building.set_transform(Mat4.from_translation(Vec3(0, 0, 0)))
         elif building_type is BuildingType.HIGHRISE:
-             # TODO: replace the following line with your own code to create a highrise
              building = Highrise(self._app, 10, 3)
-        # elif building_type is BuildingType.SKYSCRAPER:
-        #     # TODO: replace the following line with your own code to create a skyscraper
-        #     building = Skyscraper(self._app, 10, 6)
+        elif building_type is BuildingType.SKYSCRAPER:
+             building = Skyscraper(self._app, 30, 3)
         elif building_type is BuildingType.PARK:
-            building = Park(self._app)
+             building = Park(self._app)
 
         self._plots[row * self._plots_per_col + col] = building
 
