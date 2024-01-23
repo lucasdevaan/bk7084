@@ -231,12 +231,10 @@ class City:
             ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
             ]
             building = Office(self._app, 3, grid_config=grid_config)
-            building.building.set_transform(Mat4.from_translation(Vec3(-16.5, 0, -16.5)))
-        # elif building_type is BuildingType.HIGHRISE:
-        #     # TODO: replace the following line with your own code to create a highrise
-        #     building = Skyscraper(
-        #         self._app, 5, 3
-        #     )
+            building.building.set_transform(Mat4.from_translation(Vec3(0, 0, 0)))
+        elif building_type is BuildingType.HIGHRISE:
+             # TODO: replace the following line with your own code to create a highrise
+             building = Highrise(self._app, 10, 3)
         # elif building_type is BuildingType.SKYSCRAPER:
         #     # TODO: replace the following line with your own code to create a skyscraper
         #     building = Skyscraper(self._app, 10, 6)

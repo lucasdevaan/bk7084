@@ -114,51 +114,51 @@ class Highrise:
         #toren A1       
 
             floor2 = app.add_mesh(BasicFloor(max_width, max_width), parent=floor1)
-            floor2.set_transform(Mat4.from_translation(Vec3(4, max_width * 3, 4)))
+            floor2.set_transform(Mat4.from_translation(Vec3(2, max_width * 3, 2)))
             floor2.set_visible(True)
 
 
         #toren A2    
             floor3 = app.add_mesh(BasicFloor(max_width, max_width), parent=floor2)
-            floor3.set_transform(Mat4.from_translation(Vec3(4, max_width, 4)))
+            floor3.set_transform(Mat4.from_translation(Vec3(2, max_width, 2)))
             floor3.set_visible(True)
 
 
-        # toren C
+    # toren C
         #toren C1       
             floor2c = app.add_mesh(BasicFloor(max_width, max_width), parent=floor1)
-            floor2c.set_transform(Mat4.from_translation(Vec3(-4, max_width * 2, 4)))
+            floor2c.set_transform(Mat4.from_translation(Vec3(-2, max_width * 2, 2)))
             floor2c.set_visible(True)
 
             
         #toren C2    
             floor3c = app.add_mesh(BasicFloor(max_width, max_width), parent=floor2c)
-            floor3c.set_transform(Mat4.from_translation(Vec3(-4, max_width, 4)))
+            floor3c.set_transform(Mat4.from_translation(Vec3(-2, max_width, 2)))
             floor3c.set_visible(True)
 
             
-     # toren B
+    # toren B
         #toren B1
             floor2b = app.add_mesh(BasicFloor(max_width, max_width), parent=floor1)
-            floor2b.set_transform(Mat4.from_translation(Vec3(-4, max_width, -4)))
+            floor2b.set_transform(Mat4.from_translation(Vec3(-2, max_width, -2)))
             floor2b.set_visible(True)
     
 
         #toren B2    
             floor3b = app.add_mesh(BasicFloor(max_width, max_width), parent=floor2b)
-            floor3b.set_transform(Mat4.from_translation(Vec3(-4, max_width, -4)))
+            floor3b.set_transform(Mat4.from_translation(Vec3(-2, max_width, -2)))
             floor3b.set_visible(True)  
 
     # toren D
         #toren D1
             floor2d = app.add_mesh(BasicFloor(max_width, max_width), parent=floor1)
-            floor2d.set_transform(Mat4.from_translation(Vec3(4, max_width * 4, -4)))
+            floor2d.set_transform(Mat4.from_translation(Vec3(2, max_width * 4, -2)))
             floor2d.set_visible(True)
 
            
         #toren D2    
             floor3d = app.add_mesh(BasicFloor(max_width, max_width), parent=floor2d)
-            floor3d.set_transform(Mat4.from_translation(Vec3(4, max_width, -4)))
+            floor3d.set_transform(Mat4.from_translation(Vec3(2, max_width, -2)))
             floor3d.set_visible(True)
 
             
