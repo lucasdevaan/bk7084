@@ -87,7 +87,7 @@ class Optimizer:
         if best_score == 0:
             self._skyscraper_optimized = True
 
-    def step(self, print_info=False):
+    def step(self, print_info=True):
         """Performs a single optimization step."""
         
         if not self._skyscraper_optimized:

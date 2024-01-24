@@ -89,7 +89,7 @@ win.set_size(800, 800)
 win.set_resizable(True)
 
 app = bk.App()
-camera = app.create_camera(pos=Vec3(18, 18, 26), look_at=Vec3(0, 0, 0), fov_v=60.0, near=0.1, far=2000.0, background=bk.Color.PINK)
+camera = app.create_camera(pos=Vec3(18, 18, 26), look_at=Vec3(0, 0, 0), fov_v=60.0, near=0.1, far=2000.0, background=bk.Color.BLUE)
 camera.set_as_main_camera()
 
 inclination = np.pi / 8
@@ -99,7 +99,7 @@ light = app.add_directional_light(Vec3(0.0) - starting_pos, bk.Color(0.8, 0.8, 0
 
 city = City(app, 32, 32, 22)
 optimizer = Optimizer(city)
-run_optimizer = True
+run_optimizer = False
 
 # Variables to avoid key spamming
 is_key_1_pressed = False

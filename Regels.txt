@@ -1,9 +1,0 @@
-Regels:
-
-In tegels naast skyscraper geen skyscraper
-
-In tegels naast woongebouw minstens 1 park
-
-In tegels naast office nog een office
-
-In 2 tegels naast woongebouw is er een office
