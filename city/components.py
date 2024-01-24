@@ -68,6 +68,11 @@ material_rood_raam.textures = {
     "diffuse_texture": bk.res_path("./assets/rood_raam.jpg"),
 }
 
+material_dakpannen = bk.Material()
+material_dakpannen.textures = {
+    "diffuse_texture": bk.res_path("./assets/dakpannen.jpg"),
+}
+
 
 class ConcreteWall(bk.Mesh):
 
@@ -398,6 +403,26 @@ class GreenRoof(bk.Mesh):
         return super().__new__(cls)
 
     def __init__(self, w=1, h=1, m=material_basic_ground):
+        super().__init__()
+        self.w = w
+        self.h = h
+        self.name = "BasicFloorMesh"
+        # self.materials = materials
+        self.positions = [
+            [-w / 2, 0, -h / 2],
+            [w / 2, 0, -h / 2],
+            [w / 2, 0, h / 2],
+            [-w / 2, 0, h / 2],
+        ]
+        self.texcoords = [[0, 0], [1, 0], [1, 1], [0, 1]]
+        self.triangles = [[0, 2, 1], [0, 3, 2]]
+        self.materials = [m]
+
+class Dakpannen(bk.Mesh):
+    def __new__(cls, *args, **kwargs):
+        return super().__new__(cls)
+
+    def __init__(self, w=1, h=1, m=material_dakpannen):
         super().__init__()
         self.w = w
         self.h = h

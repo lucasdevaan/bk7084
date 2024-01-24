@@ -5,8 +5,8 @@ class Optimizer:
     def __init__(self, city):
         """An optimizer that iteratively optimizes a given city grid."""
         self._city = city
-        self._skyscraper_optimized = False  # Flag to track skyscraper optimization status
-        self._office_optimized = False  # Flag to track office optimization status
+        self._skyscraper_optimized = False
+        self._office_optimized = False
 
     def count_adjacent_skyscrapers(self, row, col):
         """Counts the number of skyscrapers adjacent to a given position (including diagonals)."""
@@ -29,7 +29,6 @@ class Optimizer:
                 if self._city.get_building_type(row, col) == BuildingType.SKYSCRAPER:
                     total_score += self.count_adjacent_skyscrapers(row, col)
 
-                    # Penalize if there is no office adjacent to the skyscraper
                     office_nearby = False
                     adjacent_positions = [
                         (row - 1, col), (row + 1, col), (row, col - 1), (row, col + 1),
@@ -91,9 +90,9 @@ class Optimizer:
         """Performs a single optimization step."""
         
         if not self._skyscraper_optimized:
-            # Optimize skyscrapers until the score is 0
+        
             self.skyscraper_optimization_step()
-            return True  # Continue skyscraper optimization
+            return True
 
         if not self._office_optimized:
             # Skyscraper optimization is complete, now optimize offices
@@ -132,7 +131,7 @@ class Optimizer:
             print_info (bool):
                 Whether to print information about the optimization step.
         """
-        optimization_count = 0  # Add a counter to prevent an infinite loop
+        optimization_count = 0
         while optimization_count < 50 and self.step(print_info):
             optimization_count += 1
             print(f"Optimization step {optimization_count}")

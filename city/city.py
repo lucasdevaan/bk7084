@@ -43,49 +43,7 @@ Park.type = BuildingType.PARK
 
 
 class City:
-    """A city class that procedurally generates a city grid given a number of rows
-    and columns.
 
-    The city grid is a 2D grid of plots. Each plot can be empty or contain a building.
-    The building can be a house, office, highrise, skyscraper, or park.
-
-    The buildings of each plot are stored in a list in the order from the first row
-    to the last row, and from the first column to the last column. For example, the
-    following city grid has 3 rows and 4 columns:
-
-    +----+----+----+----+
-    | HS | OF | HR | PK |
-    +----+----+----+----+
-    | SK | ET | ET | ET |
-    +----+----+----+----+
-    | ET | ET | ET | ET |
-    +----+----+----+----+
-
-    ET = empty plot
-    HS = house
-    OF = office
-    HR = highrise
-    SK = skyscraper
-    PK = park
-
-    The buildings are stored in the following order in the list:
-    [HS, OF, HR, PK, SK, ET, ET, ET, ET, ET, ET, ET]
-
-    We can use the following formula to get the index of the building in the list:
-
-    index = row * num_cols + col
-
-    For example, the index of the building at row 1 and column 2 is:
-
-    index = 1 * 4 + 2 = 6
-
-    This means that the building at row 1 and column 2 is the 7th building in the list.
-
-    To facilitate the access of the buildings in the city grid, you can use the methods
-    `get_building`, `set_building`, and `get_building_type` to get the building at a
-    specific row and column, set the building at a specific row and column, and get
-    the type of the building at a specific row and column, respectively.
-    """
     def __init__(self, app, plots_per_col=8, plots_per_row=8, plot_width=3):
         self._app = app
         self._plots_per_col = plots_per_col

@@ -31,22 +31,6 @@ grid_config = [
 office = Office(app, 3, grid_config=grid_config)
 office.building.set_transform(Mat4.from_translation(Vec3(0, 0, 0)))
 
-# grid_config = [
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-#     ['0', '0', '1', '0', '0', '2', '0', '0', '3', '0', '0'],
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-#     ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'],
-# ]
-# office = Office(app, 3, grid_config=grid_config)
-# office.building.set_transform(Mat4.from_translation(Vec3(0, 0, 0)))
-
 ground_mesh = bk.Mesh.create_quad(33, bk.Alignment.XY)
 ground_mesh.set_material(material_basic_ground)
 ground = app.add_mesh(ground_mesh)
