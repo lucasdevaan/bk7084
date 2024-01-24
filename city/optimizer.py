@@ -88,14 +88,8 @@ class Optimizer:
             self._skyscraper_optimized = True
 
     def step(self, print_info=False):
-        """Performs a single optimization step.
-        Args:
-            print_info (bool):
-                Whether to print information about the optimization step.
-        Returns:
-            bool:
-                True if the optimization should continue, False otherwise.
-        """
+        """Performs a single optimization step."""
+        
         if not self._skyscraper_optimized:
             # Optimize skyscrapers until the score is 0
             self.skyscraper_optimization_step()

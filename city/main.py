@@ -89,7 +89,7 @@ win.set_size(800, 800)
 win.set_resizable(True)
 
 app = bk.App()
-camera = app.create_camera(pos=Vec3(18, 18, 26), look_at=Vec3(0, 0, 0), fov_v=60.0, near=0.1, far=1000.0, background=bk.Color.ICE_BLUE)
+camera = app.create_camera(pos=Vec3(18, 18, 26), look_at=Vec3(0, 0, 0), fov_v=60.0, near=0.1, far=2000.0, background=bk.Color.PINK)
 camera.set_as_main_camera()
 
 inclination = np.pi / 8

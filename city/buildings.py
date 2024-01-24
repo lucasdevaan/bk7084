@@ -61,14 +61,9 @@ class Skyscraper:
         self.building.set_visible(True)
         for i in range(self.num_floors):
             angle = i + 2 * math.pi / 4
-            height = max_width * i  # Adjust the height to control the vertical spacing between floors
-
-            # To place each floor higher than the previous one, we parent all
-            # components to one 'base' component (floor1, see below). Then we
-            # only have to move the base component up higher and the framework
-            # takes care of the rest.
+            height = max_width * i
             floor1 = app.add_mesh(GreenRoof(max_width, max_width), parent=self.building)
-            # Place the base component higher each time (i)
+
             floor1.set_transform(Mat4.from_translation(Vec3(max_width * math.cos(angle), height, max_width * math.sin(angle))) * Mat4.from_rotation_y(angle, True))
             floor1.set_visible(True)
           

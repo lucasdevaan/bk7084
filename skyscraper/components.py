@@ -7,58 +7,58 @@ Materials are used to define the appearance of a mesh.
 """
 material_stone_bricks = bk.Material()
 material_stone_bricks.textures = {
-    "diffuse_texture": bk.res_path("../03_textures/assets\mosaic_tiles_col.png"),
-    "normal_texture": bk.res_path("../03_textures/assets\mosaic_tiles_nrm.png"),
-    "specular_texture": bk.res_path("../03_textures/assets\mosaic_tiles_refl.png"),
-    "shininess_texture": bk.res_path("../03_textures/assets\mosaic_tiles_gloss.png"),
+    "diffuse_texture": bk.res_path("./assets/mosaic_tiles_col.png"),
+    "normal_texture": bk.res_path("./assets/mosaic_tiles_nrm.png"),
+    "specular_texture": bk.res_path("./assets/mosaic_tiles_refl.png"),
+    "shininess_texture": bk.res_path("./assets/mosaic_tiles_gloss.png"),
 }
 
 material_basic_bricks = bk.Material()
 material_basic_bricks.specular = bk.Color(0.1, 0.1, 0.1)
 material_basic_bricks.textures = {
-    "diffuse_texture": bk.res_path("../assets/tegeltjes.jpg"),
+    "diffuse_texture": bk.res_path("./assets/tegeltjes.jpg"),
 }
 
 material_green_tiles = bk.Material()
 material_green_tiles.specular = bk.Color(0.1, 0.1, 0.1)
 material_green_tiles.textures = {
-    "diffuse_texture": bk.res_path("../assets/tegeltjes.jpg"),
+    "diffuse_texture": bk.res_path("./assets/tegeltjes.jpg"),
 }
 
 material_basic_floor = bk.Material()
 material_basic_floor.specular = bk.Color(0.1, 0.1, 0.1)
 material_basic_floor.textures = {
-    "diffuse_texture": bk.res_path("../assets/dakpannen.jpg"),
+    "diffuse_texture": bk.res_path("./assets/dakpannen.jpg"),
 }
 
 material_basic_window = bk.Material()
 material_basic_window.textures = {
-    "diffuse_texture": bk.res_path("../assets/raam_hout.png"),
+    "diffuse_texture": bk.res_path("./assets/raam_hout.jpg"),
 }
 
 material_rood_raam = bk.Material()
 material_rood_raam.textures = {
-    "diffuse_texture": bk.res_path("../assets/rood_raam.png"),
+    "diffuse_texture": bk.res_path("./assets/rood_raam.jpg"),
 }
 
 material_basic_ground = bk.Material()
 material_basic_ground.textures = {
-    "diffuse_texture": bk.res_path("../assets/grass.jpg"),
+    "diffuse_texture": bk.res_path("./assets/grass.jpg"),
 }
 
 material_yellow_wall = bk.Material()
 material_yellow_wall.textures = {
-    "diffuse_texture": bk.res_path("../assets/gele_latten.png"),
+    "diffuse_texture": bk.res_path("./assets/gele_latten.jpg"),
 }
 
 material_concrete_blue = bk.Material()
 material_concrete_blue.textures = {
-    "diffuse_texture": bk.res_path("../assets/blue_wall.png"),
+    "diffuse_texture": bk.res_path("./assets/blue_wall.jpg"),
 }
 
 material_grass = bk.Material()
 material_grass.textures = {
-    "diffuse_texture": bk.res_path("../assets/grass.jpg"),
+    "diffuse_texture": bk.res_path("./assets/grass.jpg"),
 }
 
 
